@@ -1,5 +1,5 @@
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import Column, String, Integer, Boolean, DateTime
+from sqlalchemy import ARRAY, Column, String, Integer, Boolean, DateTime
 from sqlalchemy.orm import relationship
 import json
 
@@ -18,7 +18,7 @@ class Venue(db.Model):
     image_link = Column(String)
     facebook_link = Column(String)
     website = Column(String)
-    genres = Column(String, nullable=False)
+    genres = db.Column(ARRAY(db.String))
     seeking_talent = Column(Boolean, default=False)
     seeking_description = Column(String)
 
@@ -44,7 +44,7 @@ class Artist(db.Model):
     city = Column(String, nullable=False)
     state = Column(String, nullable=False)
     phone = Column(String)
-    genres = Column(String, nullable=False)
+    genres = db.Column(ARRAY(db.String))
     image_link = Column(String)
     facebook_link = Column(String)
     website = Column(String)

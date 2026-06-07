@@ -157,7 +157,7 @@ def show_venue(venue_id):
     data = {
         'id': venue.id,
         'name': venue.name,
-        'genres': parse_genres(venue.genres),
+        'genres': venue.genres,
         'address': venue.address,
         'city': venue.city,
         'state': venue.state,
@@ -192,7 +192,7 @@ def create_venue_submission():
             state = request.form.get('state'),
             address = request.form.get('address'),
             phone = request.form.get('phone'),
-            genres=json.dumps(request.form.getlist('genres')),
+            genres = request.form.getlist('genres'),
             facebook_link = request.form.get('facebook_link'),
             image_link = request.form.get('image_link'),
             website = request.form.get('website_link'),
@@ -296,7 +296,7 @@ def show_artist(artist_id):
     data = {
         'id': artist.id,
         'name': artist.name,
-        'genres': parse_genres(artist.genres),
+        'genres': artist.genres,
         'city': artist.city,
         'state': artist.state,
         'phone': artist.phone,
@@ -343,7 +343,7 @@ def edit_artist_submission(artist_id):
         artist.city = request.form.get('city')
         artist.state = request.form.get('state')
         artist.phone = request.form.get('phone')
-        artist.genres = json.dumps(request.form.getlist('genres'))
+        artist.genres = request.form.getlist('genres')
         artist.facebook_link = request.form.get('facebook_link')
         artist.image_link = request.form.get('image_link')
         artist.website = request.form.get('website_link')
@@ -390,7 +390,7 @@ def edit_venue_submission(venue_id):
         venue.state = request.form.get('state')
         venue.address = request.form.get('address')
         venue.phone = request.form.get('phone')
-        venue.genres = json.dumps(request.form.getlist('genres'))
+        venue.genres = request.form.getlist('genres')
         venue.facebook_link = request.form.get('facebook_link')
         venue.image_link = request.form.get('image_link')
         venue.website = request.form.get('website_link')
@@ -425,7 +425,7 @@ def create_artist_submission():
             city = request.form.get('city'),
             state = request.form.get('state'),
             phone = request.form.get('phone'),
-            genres=json.dumps(request.form.getlist('genres')),
+            genres = request.form.getlist('genres'),
             facebook_link = request.form.get('facebook_link'),
             image_link = request.form.get('image_link'),
             website = request.form.get('website_link'),
