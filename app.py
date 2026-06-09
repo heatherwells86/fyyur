@@ -503,6 +503,7 @@ def create_show_submission():
             db.session.commit()
             flash('Show was successfully listed!')
         else:
+            print(form.errors)
             flash('An error occurred. Show could not be listed.')
     except Exception:
         db.session.rollback()
